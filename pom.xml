@@ -6,7 +6,6 @@
     <packaging>war</packaging>
 
     <!-- Dev, QA, and Prod Profile configurations -->
-<!--	
     <profiles>
         <profile>
             <id>dev</id>
@@ -63,7 +62,6 @@
             </build>
         </profile>
     </profiles>
--->
 	
     <!-- Build Configuration -->  
     <build>
