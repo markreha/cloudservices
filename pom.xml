@@ -84,6 +84,7 @@
                 <configuration>
                     <packagingExcludes>**/test/java/*</packagingExcludes>
                     <warSourceDirectory>WebContent</warSourceDirectory>
+		    <warName>ROOT</warName>
                 </configuration>
             </plugin>
             <plugin>
