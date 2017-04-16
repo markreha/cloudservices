@@ -1,0 +1,5 @@
+#!/bin/sh
+# Change this Script, to suit your needs
+# (This script has not been tested)
+# You will need to "chmod +x j2h" to enable it to be executed
+exec java -jar j2h.jar -js "/Volumes/Second Disk/Development/Projects/OnTheEdgeSc/uPickem/src" -jd ../javadoc -d output

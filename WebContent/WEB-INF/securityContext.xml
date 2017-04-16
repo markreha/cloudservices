@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- - Security context definition for NFL Pool. -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:sec="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+                        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+                        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd
+                        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+    <sec:authentication-manager alias="casAuthenticationManager" >
+		<sec:authentication-provider>
+			<sec:user-service>
+				<sec:user name="CloudWorkshop" password="dGVzdHRlc3Q="
+					authorities="ROLE_SYSTEM" />
+			</sec:user-service>
+	    </sec:authentication-provider>
+    </sec:authentication-manager>
+	<sec:http auto-config="true">
+		<sec:intercept-url pattern="/rest/**" access="ROLE_SYSTEM" />
+		<sec:http-basic />
+	</sec:http>
+</beans>
