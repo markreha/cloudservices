@@ -68,7 +68,7 @@
     <!-- Build Configuration -->  
     <build>
         <sourceDirectory>src</sourceDirectory>
-        <finalName>template</finalName>
+        <finalName>cloadservices</finalName>
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
