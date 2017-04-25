@@ -15,7 +15,7 @@ import org.slf4j.Logger;
 import edu.gcu.web.model.WeatherSensorModel;
 import edu.gcu.web.model.ResponseModel;
 
-@Path("services")
+@Path("dht11")
 public class RestService
 {
     Logger logger = LoggerFactory.getLogger(RestService.class);
