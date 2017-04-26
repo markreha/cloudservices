@@ -12,8 +12,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
-import edu.gcu.web.model.WeatherSensorModel;
-import edu.gcu.web.model.ResponseModel;
+import edu.gcu.models.WeatherSensorModel;
+import edu.gcu.models.ResponseModel;
 
 @Path("dht11")
 public class RestService
