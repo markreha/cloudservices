@@ -1,11 +1,25 @@
-package edu.gcu.models;
+package edu.gcu.model;
 
 public class WeatherSensorModel 
 {
 	private int deviceID;
 	private float temperature;
 	private float humidity;
+
+	public WeatherSensorModel()
+	{
+		this.deviceID = -1;
+		this.temperature = 0;
+		this.humidity = 0;
+	}
 	
+	public WeatherSensorModel(int deviceID, float temperature, float humidity)
+	{
+		this.deviceID = deviceID;
+		this.temperature = temperature;
+		this.humidity = humidity;
+	}
+
 	public int getDeviceID() 
 	{
 		return deviceID;
