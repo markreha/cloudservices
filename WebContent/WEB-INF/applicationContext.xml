@@ -15,12 +15,12 @@
     <!-- Configuration Parameters -->
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="location" value="classpath:config/config.properties"/>
-    </bean>
-    
+    </bean>     
+
     <!-- MySQL Datasource -->
     <bean id="dataSource" destroy-method="close" class="org.apache.commons.dbcp.BasicDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://${db.hostname}/upickem" />
+        <property name="url" value="jdbc:mysql://${db.hostname}/iot" />
         <property name="username" value="${db.username}" />
         <property name="password" value="${db.password}" />
     </bean>
@@ -43,4 +43,20 @@
         </tx:attributes>
     </tx:advice>
 
+    <!-- Concrete Spring Bean Binding and Dependency injections -->
+    <bean id="weatherDao" class="edu.gcu.dao.WeatherDAO">
+        <property name="dataSource">
+            <ref bean="dataSource" />
+        </property>
+    </bean>
+    <bean id="weatherService" class="edu.gcu.business.WeatherService">
+        <property name="dao">
+            <ref bean="weatherDao" />
+        </property>
+    </bean>
+    <bean id="restServicesBean" class="edu.gcu.web.service.RestService">
+        <property name="service">
+            <ref bean="weatherService" />
+        </property>
+    </bean>
 </beans>
