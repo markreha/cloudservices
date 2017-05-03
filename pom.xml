@@ -371,12 +371,14 @@
         <artifactId>spring-test</artifactId>
         <version>4.1.6.RELEASE</version>
     </dependency>
-	<dependency>
+<!--	  
+    <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-simple</artifactId>
         <version>1.6.4</version>
     </dependency>
-	<dependency>
+-->
+     <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-log4j12</artifactId>
         <version>1.7.12</version>
