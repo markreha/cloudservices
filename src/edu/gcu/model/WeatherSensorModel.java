@@ -61,6 +61,6 @@ public class WeatherSensorModel
 	@Override
 	public String toString() 
 	{
-		return new StringBuffer("Device ID: ").append(this.deviceID).append("  Temperature: ").append(this.temperature).append("  Humidity: ").append(this.humidity).append(this.pressure).toString();
+		return new StringBuffer("Device ID: ").append(this.deviceID).append("  Temperature: ").append(this.temperature).append("  Humidity: ").append(this.humidity).append("  Pressure: ").append(this.pressure).toString();
 	}
 }
