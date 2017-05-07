@@ -5,6 +5,7 @@ public class WeatherSensorModel
 	private int deviceID;
 	private float temperature;
 	private float humidity;
+	private float pressure;
 
 	public WeatherSensorModel()
 	{
@@ -13,11 +14,12 @@ public class WeatherSensorModel
 		this.humidity = 0;
 	}
 	
-	public WeatherSensorModel(int deviceID, float temperature, float humidity)
+	public WeatherSensorModel(int deviceID, float temperature, float humidity, float pressure)
 	{
 		this.deviceID = deviceID;
 		this.temperature = temperature;
 		this.humidity = humidity;
+		this.pressure = pressure;
 	}
 
 	public int getDeviceID() 
@@ -47,9 +49,18 @@ public class WeatherSensorModel
 		this.humidity = humidity;
 	}
 	
+	public float getPressure() 
+	{
+		return pressure;
+	}
+	public void setPressure(float pressure) 
+	{
+		this.pressure = pressure;
+	}
+
 	@Override
 	public String toString() 
 	{
-		return new StringBuffer("Device ID: ").append(this.deviceID).append("  Temperature: ").append(this.temperature).append("  Humidity: ").append(this.humidity).toString();
+		return new StringBuffer("Device ID: ").append(this.deviceID).append("  Temperature: ").append(this.temperature).append("  Humidity: ").append(this.humidity).append(this.pressure).toString();
 	}
 }
