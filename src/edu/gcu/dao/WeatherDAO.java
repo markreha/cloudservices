@@ -36,7 +36,7 @@ public class WeatherDAO implements WeatherDAOInterface
         boolean OK = srs.first();
         if(OK)
         {
-        	return new WeatherSensorModel(srs.getInt("device_id"), srs.getFloat("temp"), srs.getFloat("humidity"));
+        	return new WeatherSensorModel(srs.getInt("device_id"), srs.getFloat("temp"), srs.getFloat("humidity"), srs.getFloat("pressure"));
         }        
         else
         {
@@ -64,7 +64,7 @@ public class WeatherDAO implements WeatherDAOInterface
         SqlRowSet srs = jdbcTemplateObject.queryForRowSet(sql, deviceID, from, to);
         while(srs.next())
         {
-        	WeatherSensorModel data = new WeatherSensorModel(srs.getInt("device_id"), srs.getFloat("temp"), srs.getFloat("humidity"));
+        	WeatherSensorModel data = new WeatherSensorModel(srs.getInt("device_id"), srs.getFloat("temp"), srs.getFloat("humidity"), srs.getFloat("pressure"));
         	list.add(data);
         }        
         return list;
@@ -82,8 +82,8 @@ public class WeatherDAO implements WeatherDAOInterface
     	logger.info("Entering WeatherDAO.insert()");
     	
     	// Execute SQL using JDBC Template
-        String sql = "INSERT INTO weather (device_id, temp, humidity, date) VALUES (?, ?, ?, ?)";
-        int rows = jdbcTemplateObject.update(sql, model.getDeviceID(), model.getTemperature(), model.getHumidity(), new Date());
+        String sql = "INSERT INTO weather (device_id, temp, humidity, pressure, date) VALUES (?, ?, ?, ?, ?)";
+        int rows = jdbcTemplateObject.update(sql, model.getDeviceID(), model.getTemperature(), model.getHumidity(), model.getPressure(), new Date());
     	
         // Return result of Insert
     	return rows == 1 ? true : false;
