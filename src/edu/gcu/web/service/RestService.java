@@ -20,7 +20,7 @@ import edu.gcu.model.ResponseModel;
 import edu.gcu.model.WeatherSensorModel;
 
 
-@Path("dht11")
+@Path("weather")
 public class RestService
 {
     Logger logger = LoggerFactory.getLogger(RestService.class);
