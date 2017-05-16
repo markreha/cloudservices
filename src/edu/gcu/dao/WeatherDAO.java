@@ -7,6 +7,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import javax.sql.DataSource;
+import java.text.SimpleDateFormat;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import edu.gcu.model.WeatherSensorModel;
@@ -31,12 +32,14 @@ public class WeatherDAO implements WeatherDAOInterface
     	logger.info("Entering WeatherDAO.findByID()");
     	
     	// Execute SQL using JDBC Template, read the query data, and return a WeatherSensorModel if valid else return null
+        SimpleDateFormat dtFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String sql = "SELECT * FROM weather WHERE device_id=? AND id=?";
         SqlRowSet srs = jdbcTemplateObject.queryForRowSet(sql, deviceID, id);
         boolean OK = srs.first();
         if(OK)
         {
-        	return new WeatherSensorModel(srs.getInt("device_id"), srs.getFloat("temp"), srs.getFloat("humidity"), srs.getFloat("pressure"));
+
+        	return new WeatherSensorModel(srs.getInt("device_id"), srs.getFloat("temp"), srs.getFloat("humidity"), srs.getFloat("pressure"), dtFormat.format(srs.getDate("date")));
         }        
         else
         {
@@ -56,15 +59,15 @@ public class WeatherDAO implements WeatherDAOInterface
     {
     	// Log the API call
     	logger.info("Entering WeatherDAO.findByDateRange()");
-    	SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
    	
     	// Execute SQL using JDBC Template, read the query data, and return a WeatherSensorModel if valid else return null
+    	SimpleDateFormat dtFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     	List<WeatherSensorModel> list = new ArrayList<WeatherSensorModel>();
         String sql = "SELECT * FROM weather WHERE device_id=? AND date >= ? AND date <= ?";
         SqlRowSet srs = jdbcTemplateObject.queryForRowSet(sql, deviceID, from, to);
         while(srs.next())
         {
-        	WeatherSensorModel data = new WeatherSensorModel(srs.getInt("device_id"), srs.getFloat("temp"), srs.getFloat("humidity"), srs.getFloat("pressure"));
+        	WeatherSensorModel data = new WeatherSensorModel(srs.getInt("device_id"), srs.getFloat("temp"), srs.getFloat("humidity"), srs.getFloat("pressure"), dtFormat.format(srs.getDate("date")));
         	list.add(data);
         }        
         return list;
