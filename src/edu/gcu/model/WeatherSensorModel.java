@@ -6,20 +6,23 @@ public class WeatherSensorModel
 	private float temperature;
 	private float humidity;
 	private float pressure;
+	private String date;
 
 	public WeatherSensorModel()
 	{
 		this.deviceID = -1;
 		this.temperature = 0;
 		this.humidity = 0;
+		this.date = "";
 	}
 	
-	public WeatherSensorModel(int deviceID, float temperature, float humidity, float pressure)
+	public WeatherSensorModel(int deviceID, float temperature, float humidity, float pressure, String date)
 	{
 		this.deviceID = deviceID;
 		this.temperature = temperature;
 		this.humidity = humidity;
 		this.pressure = pressure;
+		this.date = date;
 	}
 
 	public int getDeviceID() 
@@ -56,6 +59,15 @@ public class WeatherSensorModel
 	public void setPressure(float pressure) 
 	{
 		this.pressure = pressure;
+	}
+
+	public String getDate() 
+	{
+		return date;
+	}
+	public void setDate(String date) 
+	{
+		this.date = date;
 	}
 
 	@Override
