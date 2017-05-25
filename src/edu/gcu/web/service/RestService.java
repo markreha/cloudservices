@@ -14,10 +14,13 @@ import java.util.Date;
 import java.util.List;
 import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
+
 import edu.gcu.business.WeatherServiceInterface;
 import edu.gcu.model.ResponseDataModel;
 import edu.gcu.model.ResponseModel;
 import edu.gcu.model.WeatherSensorModel;
+import edu.gcu.exceptions.DAOException;
+import edu.gcu.exceptions.NotFoundException;
 
 
 @Path("weather")
@@ -48,7 +51,7 @@ public class RestService
      * Save Sensor Data API at /save using HTTP POST.
      * 
      * @param model The Sensor Data to save.
-     * @return Response Model
+     * @return Response Model with error code of 1 for no error, 0 if save failed, -2 if database error
      */
     @POST
     @Path("/save")
@@ -56,23 +59,32 @@ public class RestService
     @Produces(MediaType.APPLICATION_JSON)
     public ResponseModel saveTemperatureSensorData(WeatherSensorModel model)
     {
-       	// Log the API call
-    	logger.info("Entering RestService.saveTemperatureSensorData()");
-    	logger.debug("Model: " + model.toString());
-    	
-    	// Call Business Service to save the Sensor Data
-    	boolean OK = service.saveTemperatureSensorData(model);
-    	
-    	// Return OK Response
-    	ResponseModel response = new ResponseModel(OK ? 1 : 0, OK ? "OK" : "Error");
-    	return response;
+       	try 
+       	{
+			// Log the API call
+			logger.info("Entering RestService.saveTemperatureSensorData()");
+			logger.debug("Model: " + model.toString());
+			
+			// Call Business Service to save the Sensor Data
+			boolean OK = service.saveTemperatureSensorData(model);
+			
+			// Return OK Response
+			ResponseModel response = new ResponseModel(OK ? 1 : 0, OK ? "OK" : "Error");
+			return response;
+		} 
+       	catch (DAOException e) 
+       	{
+			// Return Database Exception Response
+			ResponseModel response = new ResponseModel(-2, "Database Exception: " + e.getMessage());
+			return response;
+		}
     }
 
     /**
      * Get Sensor Data in a Date Range at /get/{device}/YYYY-MM-dd HH:mm:ss using HTTP GET.
      * 
      * @param Device ID to all Sensor Data for
-     * @return Response Model
+     * @return Response Model with error code of 0 for no error, -1 if no sensor data found, -2 if database error, -3 if input data parsing error
      */
     @GET
     @Path("/get/{device}/{from}/{to}")
@@ -94,23 +106,26 @@ public class RestService
 			
 	    	// Return Response and Data
 	    	int returnError = 0;
-	    	String returnMessage = "";
-	    	if(data.isEmpty())
-	    	{
-	    		returnError = -1;
-	    		returnMessage = "Sensor Data Not Found";
-	    	}
-	    	else
-	    	{
-	    		returnError = 0;
-	    		returnMessage = "OK";
-	    	}
+	    	String returnMessage = "OK";
 	    	ResponseDataModel response = new ResponseDataModel(returnError, returnMessage, data);
 	    	return response;
 		} 
+       	catch (NotFoundException e) 
+       	{
+			// Return Database Error Response
+       		ResponseDataModel response = new ResponseDataModel(-1, "Sensor Data Not Found" + e.getMessage(), new ArrayList<WeatherSensorModel>());
+			return response;
+		}
+       	catch (DAOException e) 
+       	{
+			// Return Database Error Response
+       		ResponseDataModel response = new ResponseDataModel(-2, "Database Exception: " + e.getMessage(), new ArrayList<WeatherSensorModel>());
+			return response;
+		}
     	catch (ParseException e) 
     	{
-    		ResponseDataModel response = new ResponseDataModel(-2, "Bad Parameter Value", new ArrayList<WeatherSensorModel>());
+    		// Return Input Data Parameter Error Response
+    		ResponseDataModel response = new ResponseDataModel(-3, "Bad Parameter Value", new ArrayList<WeatherSensorModel>());
 	    	return response;
 		}
     }
@@ -120,37 +135,42 @@ public class RestService
      * 
      * @param Device ID to all Sensor Data for
      * @param id Sensor ID to return
-     * @return Response Model
+     * @return Response Model with error code of 0 for no error, -1 if no sensor data found, -2 if database error
      */
     @GET
     @Path("/get/{device}/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public ResponseDataModel getTemperatureSensorData(@PathParam("device") int deviceID, @PathParam("id") int id)
     {
-       	// Log the API call
-    	logger.info("Entering RestService.getTemperatureSensorData()");
-    	logger.debug("Device ID: " + deviceID + " Sensor Data ID: " + id);
-    	
-    	// Call Business Service to get the Sensor Data for a specified Sensor Data ID
-    	WeatherSensorModel data = service.getTemperatureSensorData(deviceID, id);
-    	
-    	// Return Response and Data
-    	int returnError = 0;
-    	String returnMessage = "";
-    	List<WeatherSensorModel> returnData = new ArrayList<WeatherSensorModel>();
-    	if(data == null)
-    	{
-    		returnError = -1;
-    		returnMessage = "Sensor Data Not Found";
-    	}
-    	else
-    	{
-    		returnError = 0;
-    		returnMessage = "OK";
-    		returnData.add(data);
-    	}
-    	ResponseDataModel response = new ResponseDataModel(returnError, returnMessage, returnData);
-    	return response;
+       	try 
+       	{
+			// Log the API call
+			logger.info("Entering RestService.getTemperatureSensorData()");
+			logger.debug("Device ID: " + deviceID + " Sensor Data ID: " + id);
+			
+			// Call Business Service to get the Sensor Data for a specified Sensor Data ID
+			WeatherSensorModel data = service.getTemperatureSensorData(deviceID, id);
+			
+			// Return Response and Data
+			int returnError = 0;
+			String returnMessage = "OK";
+			List<WeatherSensorModel> returnData = new ArrayList<WeatherSensorModel>();
+			returnData.add(data);
+			ResponseDataModel response = new ResponseDataModel(returnError, returnMessage, returnData);
+			return response;
+		} 
+       	catch (NotFoundException e) 
+       	{
+			// Return Database Error Response
+       		ResponseDataModel response = new ResponseDataModel(-1, "Sensor Data Not Found" + e.getMessage(), new ArrayList<WeatherSensorModel>());
+			return response;
+		}
+       	catch (DAOException e) 
+       	{
+			// Return Database Error Response
+       		ResponseDataModel response = new ResponseDataModel(-2, "Database Exception: " + e.getMessage(), new ArrayList<WeatherSensorModel>());
+			return response;
+		}
     }
 
     // ***** Dependencies and Helper Functions *****

@@ -4,7 +4,9 @@ import java.util.Date;
 import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import edu.gcu.dao.WeatherDAOInterface;
+import edu.gcu.exceptions.NotFoundException;
 import edu.gcu.model.WeatherSensorModel;
 
 public class WeatherService implements WeatherServiceInterface
@@ -27,20 +29,29 @@ public class WeatherService implements WeatherServiceInterface
     	return dao.insert(model);
     }
 
-    /**
+     /**
  	 * Get Weather Sensor Data by Data ID.
 	 * 
 	 * @param deviceID The Device to find data for.
 	 * @param id The Weather Data ID to retrieve.
 	 * @return WeatherSensorModel populated with data else null if not found.
+	 * @throws NotFoundException Checked exception thrown if no search results.
      */
-    public WeatherSensorModel getTemperatureSensorData(int deviceID, int id)
+     public WeatherSensorModel getTemperatureSensorData(int deviceID, int id) throws NotFoundException
     {
-    	// Log the API call
-    	logger.info("Entering WeatherService.getTemperatureSensorData()");
-    	
-    	// Call DAO
-    	return dao.findByID(deviceID, id);
+    	try 
+    	{
+			// Log the API call
+			logger.info("Entering WeatherService.getTemperatureSensorData()");
+			
+			// Call DAO
+			return dao.findByID(deviceID, id);
+		} 
+    	catch (NotFoundException e) 
+    	{
+			// Rethrow exception
+			throw new NotFoundException();
+		}
     }
 
     /**
@@ -50,14 +61,23 @@ public class WeatherService implements WeatherServiceInterface
      * @param from Beginning DateTime to retrieve.
      * @param to End DateTime to retrieve.
      * @return List of WeatherSensorModel populated with data else empty list if not found.
+	 * @throws NotFoundException Checked exception thrown if no search results.
      */
-    public List<WeatherSensorModel> getTemperatureSensorDataInRange(int deviceID, Date from, Date to)
+    public List<WeatherSensorModel> getTemperatureSensorDataInRange(int deviceID, Date from, Date to) throws NotFoundException
     {
-    	// Log the API call
-    	logger.info("Entering WeatherService.getTemperatureSensorDataInRange()");
+    	try 
+    	{
+    		// Log the API call
+    		logger.info("Entering WeatherService.getTemperatureSensorDataInRange()");
 
-    	// Call DAO
-    	return dao.findByDateRange(deviceID, from, to);
+    		// Call DAO
+    		return dao.findByDateRange(deviceID, from, to);
+		} 
+    	catch (NotFoundException e) 
+    	{
+			// Rethrow exception
+			throw new NotFoundException();
+		}
     }
 
     // ***** Dependencies and Helper Functions *****
