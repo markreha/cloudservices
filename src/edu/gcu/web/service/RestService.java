@@ -50,7 +50,7 @@ public class RestService
     /**
      * Save Sensor Data API at /save using HTTP POST.
      * 
-     * @param model The Sensor Data to save.
+     * @param model The Weather Data to save.
      * @return Response Model with error code of 1 for no error, 0 if save failed, -2 if database error
      */
     @POST
@@ -83,7 +83,9 @@ public class RestService
     /**
      * Get Sensor Data in a Date Range at /get/{device}/YYYY-MM-dd HH:mm:ss using HTTP GET.
      * 
-     * @param Device ID to all Sensor Data for
+     * @param deviceID Device ID to query Sensor Data from
+     * @param from Start date and time to query where format is YYYY-MM-dd HH:mm:ss
+     * @param to End date and time to query where format is YYYY-MM-dd HH:mm:ss
      * @return Response Model with error code of 0 for no error, -1 if no sensor data found, -2 if database error, -3 if input data parsing error
      */
     @GET
@@ -133,7 +135,7 @@ public class RestService
     /**
      * Get Sensor Data for a specified Sensor Data ID at /get/{device}/{id} using HTTP GET.
      * 
-     * @param Device ID to all Sensor Data for
+     * @param deviceID Device ID to query Sensor Data from
      * @param id Sensor ID to return
      * @return Response Model with error code of 0 for no error, -1 if no sensor data found, -2 if database error
      */
@@ -178,7 +180,7 @@ public class RestService
     /**
      * IoC helper function.
      * 
-     * @param dao WeatherServiceInterface to inject into this service implementation.
+     * @param service WeatherServiceInterface to inject into this service implementation.
      */
     public void setService(WeatherServiceInterface service)
     {
