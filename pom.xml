@@ -61,6 +61,26 @@
               </resources>
             </build>
         </profile>
+        <profile>
+            <id>openshift</id>
+            <activation>
+               <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <build.profile.id>openshift</build.profile.id>
+            </properties>
+            <build>
+              <resources>
+                <resource>
+                  <directory>src/config/openshift</directory>
+                  <includes>
+                    <include>config.properties</include>
+                  </includes>
+                  <targetPath>config</targetPath>
+                </resource>
+              </resources>
+            </build>
+        </profile>
     </profiles>
 
     <!-- Build Configuration -->  
