@@ -22,7 +22,12 @@ import edu.gcu.model.WeatherSensorModel;
 import edu.gcu.exceptions.DAOException;
 import edu.gcu.exceptions.NotFoundException;
 
-
+/**
+ * This class is REST Service that implements the REST API to support the Weather Sensor IoT.
+ * 
+ * @author markreha
+ * @version $Revision$
+ */
 @Path("weather")
 public class RestService
 {
@@ -133,7 +138,7 @@ public class RestService
     }
 
     /**
-     * Get Sensor Data for a specified Sensor Data ID at /get/{device}/{id} using HTTP GET.
+     * Get Sensor Data for a specified Sensor Device ID at /get/{device}/{id} using HTTP GET.
      * 
      * @param deviceID Device ID to query Sensor Data from
      * @param id Sensor ID to return

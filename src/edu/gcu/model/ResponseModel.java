@@ -1,5 +1,11 @@
 package edu.gcu.model;
 
+/**
+ * This class is the DTO to simply return a status code and message back to a client.
+ * 
+ * @author markreha
+ * @version $Revision$
+ */
 public class ResponseModel 
 {
 	int status;

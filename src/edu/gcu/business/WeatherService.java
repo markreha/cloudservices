@@ -9,6 +9,12 @@ import edu.gcu.dao.WeatherDAOInterface;
 import edu.gcu.exceptions.NotFoundException;
 import edu.gcu.model.WeatherSensorModel;
 
+/**
+ * This class is the Business Service that implements the business methods to support the Weather Sensor IoT.
+ * 
+ * @author markreha
+ * @version $Revision$
+ */
 public class WeatherService implements WeatherServiceInterface
 {
 	WeatherDAOInterface dao;

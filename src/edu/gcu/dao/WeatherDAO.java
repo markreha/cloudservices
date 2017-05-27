@@ -16,6 +16,12 @@ import edu.gcu.model.WeatherSensorModel;
 import edu.gcu.exceptions.DAOException;
 import edu.gcu.exceptions.NotFoundException;
 
+/**
+ * This class is the Data Access Object that implements the CRUD methods for the Weather Sensor data.
+ * 
+ * @author markreha
+ * @version $Revision$
+ */
 @SuppressWarnings("unused")
 public class WeatherDAO implements WeatherDAOInterface
 {
@@ -24,7 +30,7 @@ public class WeatherDAO implements WeatherDAOInterface
 	private JdbcTemplate jdbcTemplateObject;
 
 	/**
-	 * Find Weather Sensor Data by Data ID from the database.
+	 * Find Weather Sensor Data by Device ID from the database.
 	 * 
 	 * @param deviceID The Device to find data for.
 	 * @param id The Weather Data ID to retrieve.

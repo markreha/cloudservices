@@ -7,10 +7,16 @@ import edu.gcu.exceptions.DAOException;
 import edu.gcu.exceptions.NotFoundException;
 import edu.gcu.model.WeatherSensorModel;
 
+/**
+ * This class is the interface class for Data Access Object that implements the CRUD methods for the Weather Sensor data.
+ * 
+ * @author markreha
+ * @version $Revision$
+ */
 public interface WeatherDAOInterface
 {
 	/**
-	 * Find Weather Sensor Data by Data ID from the database.
+	 * Find Weather Sensor Data by Device ID from the database.
 	 * 
 	 * @param deviceID The Device to find data for.
 	 * @param id The Weather Data ID to retrieve.
