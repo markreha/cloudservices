@@ -4,6 +4,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import javax.sql.DataSource;
@@ -48,6 +50,7 @@ public class WeatherDAO implements WeatherDAOInterface
 			
 			// Execute SQL using JDBC Template, read the query data, and return a WeatherSensorModel if valid else return null
 			SimpleDateFormat dtFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			dtFormat.setTimeZone(TimeZone.getTimeZone("US/Arizona"));
 			String sql = "SELECT * FROM weather WHERE device_id=? AND id=?";
 			SqlRowSet srs = jdbcTemplateObject.queryForRowSet(sql, deviceID, id);
 			boolean OK = srs.first();
@@ -88,6 +91,7 @@ public class WeatherDAO implements WeatherDAOInterface
   	
 			// Execute SQL using JDBC Template, read the query data, and return a WeatherSensorModel if valid else return null
 			SimpleDateFormat dtFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			dtFormat.setTimeZone(TimeZone.getTimeZone("US/Arizona"));
 			List<WeatherSensorModel> list = new ArrayList<WeatherSensorModel>();
 			String sql = "SELECT * FROM weather WHERE device_id=? AND date >= ? AND date <= ?";
 			SqlRowSet srs = jdbcTemplateObject.queryForRowSet(sql, deviceID, from, to);
