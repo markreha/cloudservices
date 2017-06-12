@@ -130,6 +130,7 @@ public class WeatherDAO implements WeatherDAOInterface
 			logger.info("Entering WeatherDAO.insert()");
 			
 			// Execute SQL using JDBC Template
+			TimeZone.setDefault(TimeZone.getTimeZone("US/Arizona"));
 			String sql = "INSERT INTO weather (device_id, temp, humidity, pressure, date) VALUES (?, ?, ?, ?, ?)";
 			int rows = jdbcTemplateObject.update(sql, model.getDeviceID(), model.getTemperature(), model.getHumidity(), model.getPressure(), new Date());
 			
