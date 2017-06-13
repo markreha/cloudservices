@@ -12,6 +12,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
+
 import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
 
@@ -104,6 +106,7 @@ public class RestService
     	
     	// Parse parameters and call Business Service to get the Sensor Data in a Date Range
     	SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    	format.setTimeZone(TimeZone.getTimeZone("US/Arizona"));
     	try 
     	{
         	// Call Business Service to get the Sensor Data in a Date Range
