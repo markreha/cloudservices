@@ -14,7 +14,7 @@ The IoT Services Reference application publishes 3 API's, one of which is an API
 
 ![IoT Services UML Diagram](https://github.com/markreha/cloudworkshop/blob/master/sdk/docs/architecture/images/iotrestservice.png)
 
-The REST API's as based off of the include:
+The REST API's include:
 
  - GET at /test: will return a test string and is used to test the endpoint
  - GET at /get: will return IoT Weather data for a specified Device ID, From Date, and End Date
