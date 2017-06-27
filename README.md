@@ -24,5 +24,5 @@ The JavaDoc for the entire application can be found [here](http://htmlpreview.gi
 
 Building
 --------
-The instructions for building the IoT Reference application can be found [here](http://htmlpreview.github.com/?https://github.com/markreha/cloudservices/blob/master/README.md).
+The instructions for building the IoT Reference application can be found [here](https://github.com/markreha/cloudservices/blob/master/README.md).
 
