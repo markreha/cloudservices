@@ -18,7 +18,7 @@ The REST API's as based off of the include:
  - GET at /get: will return IoT Weather data for a specified Device ID, From Date, and End Date
  - POST at /save: will save IoT Weather data from the a specified WeatherSensorModel
 
-The UML class diagram for the Services class can be found [here](http://htmlpreview.github.com/?http://htmlpreview.github.io/?https://github.com/markreha/cloudworkshop/blob/master/sdk/docs/javadoc/index.html).
+The UML class diagram for the Services class can be found [here](http://htmlpreview.github.io/?https://github.com/markreha/cloudworkshop/blob/master/sdk/docs/javadoc/index.html).
 
 The JavaDoc for the entire application can be found [here](http://htmlpreview.github.com/?https://github.com/markreha/cloudworkshop/blob/master/sdk/docs/javadoc/index.html) 
 
