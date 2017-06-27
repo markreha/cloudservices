@@ -2,7 +2,7 @@
 ==================
 The example IoT Services Reference application implements a number of REST API's that support the IoT Reporting application and IoT Device Raspberry Pi Sense HAT application to demonstrate a simple, scalable, Cloud based IoT application.
 
-![IoT Logical Architecture](/cloudworkshop/sdk/docs/architecture/images/iotservicesarch.png)
+![IoT Logical Architecture](https://github.com/markreha/cloudworkshop/blob/master/sdk/docs/architecture/images/iotservices.png)
 
 Architecture & Technologies
 --------
