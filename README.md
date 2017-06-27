@@ -6,7 +6,7 @@ The example IoT Services Reference application implements a number of REST API's
 
 Architecture & Technologies
 --------
- The IoT Services Reference application is designed and implemented in Java using the Spring Framework (Spring Core and Spring JDBC) that implements its published REST API's based on the JAX-RS framework using the Jackson and Jersey implementation libraries. The JavaDoc for the application can be found [here](http://htmlpreview.github.com/?https://github.com/markreha/cloudworkshop/blob/master/sdk/docs/javadoc/index.html). <span><a href="http://htmlpreview.github.com/?https://github.com/markreha/cloudworkshop/blob/master/sdk/docs/javadoc/index.html" target="_blank">here 2</a></span>
+ The IoT Services Reference application is designed and implemented in Java using the Spring Framework (Spring Core and Spring JDBC) that implements its published REST API's based on the JAX-RS framework using the Jackson and Jersey implementation libraries. The JavaDoc for the application can be found [here](http://htmlpreview.github.com/?https://github.com/markreha/cloudworkshop/blob/master/sdk/docs/javadoc/index.html). <a target="_blank" href="http://htmlpreview.github.com/?https://github.com/markreha/cloudworkshop/blob/master/sdk/docs/javadoc/index.html">here 2</a>
  
 REST API's
 --------
