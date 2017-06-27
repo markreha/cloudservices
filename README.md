@@ -12,6 +12,8 @@ REST API's
 --------
 The IoT Services Reference application publishes 3 API's, one of which is an API used for testing and the remaining 2 API's to save and retrieve IoT Weather Data. It should be noted that the REST endpoint is secured by using HTTPS and Basic HTTP Authentication. All REST API's are based off of the [hostname]/cloudservices/weather URL.
 
+![IoT Services UML Diagram](https://github.com/markreha/cloudworkshop/blob/master/sdk/docs/architecture/images/iotrestservice.png)
+
 The REST API's as based off of the include:
 
  - GET at /test: will return a test string and is used to test the endpoint
