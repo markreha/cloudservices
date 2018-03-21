@@ -81,6 +81,26 @@
               </resources>
             </build>
         </profile>
+        <profile>
+            <id>azure</id>
+            <activation>
+               <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <build.profile.id>azure</build.profile.id>
+            </properties>
+            <build>
+              <resources>
+                <resource>
+                  <directory>src/config/azure</directory>
+                  <includes>
+                    <include>config.properties</include>
+                  </includes>
+                  <targetPath>config</targetPath>
+                </resource>
+              </resources>
+            </build>
+        </profile>
     </profiles>
 
     <!-- Build Configuration -->  
@@ -88,23 +108,21 @@
         <sourceDirectory>src</sourceDirectory>
         <finalName>cloudservices</finalName>
         <plugins>
-            <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.1</version>
-                <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
-                </configuration>
-            </plugin>
-            <plugin>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>2.4</version>
-                <configuration>
-                    <packagingExcludes>**/test/java/*</packagingExcludes>
-                    <packagingExcludes>**/doc-files/*</packagingExcludes>
-                    <warSourceDirectory>WebContent</warSourceDirectory>
-                </configuration>
-            </plugin>
+	       <plugin>
+	        		<artifactId>maven-compiler-plugin</artifactId>
+	        		<version>3.6.1</version>
+	        		<configuration>
+	          		<source>1.8</source>
+	          		<target>1.8</target>
+	        		</configuration>
+	      </plugin>
+	      <plugin>
+	        		<artifactId>maven-war-plugin</artifactId>
+	        		<version>3.0.0</version>
+	        		<configuration>
+	          		<warSourceDirectory>WebContent</warSourceDirectory>
+	        		</configuration>
+	       </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -320,11 +338,6 @@
         <groupId>org.springframework</groupId>
         <artifactId>spring-test</artifactId>
         <version>4.1.6.RELEASE</version>
-    </dependency>
-	<dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-simple</artifactId>
-        <version>1.6.4</version>
     </dependency>
 	<dependency>
         <groupId>org.slf4j</groupId>
