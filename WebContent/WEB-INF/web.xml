@@ -25,18 +25,6 @@
             <param-name>jersey.config.server.provider.packages</param-name>
             <param-value>edu.gcu.web.service</param-value>
         </init-param>
-	<context-param>
-	    <param-name>resteasy.scan</param-name>
-	    <param-value>false</param-value>
-	</context-param>
-	<context-param>
-	    <param-name>resteasy.scan.providers</param-name>
-	    <param-value>false</param-value>
-	</context-param>
-	<context-param>
-	    <param-name>resteasy.scan.resources</param-name>
-	    <param-value>false</param-value>
-	</context-param>
 	<load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
