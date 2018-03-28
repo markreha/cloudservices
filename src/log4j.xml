@@ -11,8 +11,8 @@
 	    <param name="append" value="true" />
 	    <param name="maxFileSize" value="10MB" />
 	    <param name="maxBackupIndex" value="1" />
-            <!-- <param name="file" value="${catalina.home}/logs/iotWeatherApp.log" />  -->
-	    <param name="file" value="${jboss.server.log.dir}/iotWeatherApp.log" />
+            <param name="file" value="${catalina.home}/logs/iotWeatherApp.log" />  
+	    <!-- <param name="file" value="${jboss.server.log.dir}/iotWeatherApp.log" /> -->
 	    <layout class="org.apache.log4j.PatternLayout">
 		<param name="ConversionPattern" 
 			value="%d{yyyy-MM-dd HH:mm:ss} %-5p %c:%L - %m%n" />
@@ -20,12 +20,12 @@
 	</appender>
 	 
  	<logger name="edu.gcu" additivity="false">
-        	<level value="ALL" />
+        	<level value="DEBUG" />
 		<appender-ref ref="console" />
         	<appender-ref ref="file" />
 	</logger>
  	<root>
-		<level value="ALL" />
+		<level value="DEBUG" />
 		<appender-ref ref="console" />
         	<appender-ref ref="file" />
 	</root>
