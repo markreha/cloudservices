@@ -19,7 +19,7 @@
 	    </sec:authentication-provider>
     </sec:authentication-manager>
 	<sec:http auto-config="true">
-		<sec:intercept-url pattern="/rest2/**" access="ROLE_SYSTEM" />
+		<sec:intercept-url pattern="/rest/**" access="ROLE_SYSTEM" />
 		<sec:http-basic />
 	</sec:http>
 </beans>
