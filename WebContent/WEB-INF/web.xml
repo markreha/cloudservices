@@ -37,6 +37,7 @@
 	    <param-name>resteasy.scan.resources</param-name>
 	    <param-value>false</param-value>
 	</context-param>
+	<load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
         <servlet-name>Jersey Web Services</servlet-name>
