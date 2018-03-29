@@ -194,7 +194,7 @@
 	        		<version>3.0.0</version>
 	        		<configuration>
 	          			<warSourceDirectory>${project.basedir}/target/${warname}</warSourceDirectory>
-	        		</configuration>
+ 	        		</configuration>
 	       </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -209,7 +209,7 @@
         </plugins>
         <resources>
 	        <resource>
-                <directory>src</directory>
+                 <directory>src</directory>
                 <excludes>
                     <exclude>**/*.java</exclude>
                     <exclude>**/config.properties</exclude> 
@@ -217,6 +217,14 @@
                     <exclude>**/log4j.xml</exclude>
                     <exclude>**/*.jpg</exclude>                    
                   </excludes>
+            </resource>
+	        <resource>
+                 <directory>WebContent</directory>
+                <targetPath>${project.basedir}/target/${warname}</targetPath>
+                 <includes>
+                    <include>**/WEB-INF/applicationContext.xml</include>
+                    <include>**/WEB-INF/securityContext.xml</include>
+                  </includes>
             </resource>
             <resource>
                 <directory>loadtest</directory>
