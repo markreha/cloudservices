@@ -4,6 +4,9 @@
     <artifactId>WeatherSensorServices</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
+    <properties>
+    	<warname>cloudservices</warname>
+    </properties>
 
     <!-- Dev, QA, and Prod Profile configurations -->
     <profiles>
@@ -24,6 +27,20 @@
                   </includes>
                   <targetPath>config</targetPath>
                 </resource>
+                <resource>
+                  <directory>src/config/dev</directory>
+                  <includes>
+                    <include>web.xml</include>
+                  </includes>
+                  <targetPath>${project.basedir}/target/${warname}/WEB-INF</targetPath>
+                </resource>
+               <resource>
+                  <directory>src/config/dev</directory>
+                  <includes>
+                    <include>log4j.xml</include>
+                  </includes>
+                  <targetPath>../${warname}/WEB-INF/classes</targetPath>
+                </resource>
               </resources>
             </build>
         </profile>
@@ -41,6 +58,20 @@
                   </includes>
                   <targetPath>config</targetPath>
                 </resource>
+               <resource>
+                  <directory>src/config/aq</directory>
+                  <includes>
+                    <include>web.xml</include>
+                  </includes>
+                  <targetPath>${project.basedir}/target/${warname}/WEB-INF</targetPath>
+                </resource>
+               <resource>
+                  <directory>src/config/qa</directory>
+                  <includes>
+                    <include>log4j.xml</include>
+                  </includes>
+                  <targetPath>../${warname}/WEB-INF/classes</targetPath>
+                </resource>
               </resources>
             </build>
         </profile>
@@ -57,6 +88,20 @@
                     <include>config.properties</include>
                   </includes>
                   <targetPath>config</targetPath>
+                </resource>
+                <resource>
+                  <directory>src/config/prod</directory>
+                  <includes>
+                    <include>web.xml</include>
+                  </includes>
+                  <targetPath>${project.basedir}/target/${warname}/WEB-INF</targetPath>
+                </resource>
+               <resource>
+                  <directory>src/config/prod</directory>
+                  <includes>
+                    <include>log4j.xml</include>
+                  </includes>
+                  <targetPath>../${warname}/WEB-INF/classes</targetPath>
                 </resource>
               </resources>
             </build>
@@ -78,6 +123,20 @@
                   </includes>
                   <targetPath>config</targetPath>
                 </resource>
+               <resource>
+                  <directory>src/config/openshift</directory>
+                  <includes>
+                    <include>web.xml</include>
+                  </includes>
+                  <targetPath>${project.basedir}/target/${warname}/WEB-INF</targetPath>
+                </resource>
+               <resource>
+                  <directory>src/config/openshift</directory>
+                  <includes>
+                    <include>log4j.xml</include>
+                  </includes>
+                  <targetPath>${project.basedir}/target/${warname}/WEB-INF/classes</targetPath>
+                </resource>
               </resources>
             </build>
         </profile>
@@ -98,6 +157,20 @@
                   </includes>
                   <targetPath>config</targetPath>
                 </resource>
+                <resource>
+                  <directory>src/config/azure</directory>
+                  <includes>
+                    <include>web.xml</include>
+                  </includes>
+                  <targetPath>${project.basedir}/target/${warname}/WEB-INF</targetPath>
+                </resource>
+               <resource>
+                  <directory>src/config/azure</directory>
+                  <includes>
+                    <include>log4j.xml</include>
+                  </includes>
+                  <targetPath>../${warname}/WEB-INF/classes</targetPath>
+                </resource>
               </resources>
             </build>
         </profile>
@@ -112,15 +185,15 @@
 	        		<artifactId>maven-compiler-plugin</artifactId>
 	        		<version>3.6.1</version>
 	        		<configuration>
-	          		<source>1.8</source>
-	          		<target>1.8</target>
+	          			<source>1.8</source>
+	          			<target>1.8</target>
 	        		</configuration>
 	      </plugin>
 	      <plugin>
 	        		<artifactId>maven-war-plugin</artifactId>
 	        		<version>3.0.0</version>
 	        		<configuration>
-	          		<warSourceDirectory>WebContent</warSourceDirectory>
+	          			<warSourceDirectory>${project.basedir}/target/${warname}</warSourceDirectory>
 	        		</configuration>
 	       </plugin>
             <plugin>
@@ -140,8 +213,10 @@
                 <excludes>
                     <exclude>**/*.java</exclude>
                     <exclude>**/config.properties</exclude> 
-                    <exclude>**/*.jpg</exclude> 
-                 </excludes>
+                    <exclude>**/web.xml</exclude>
+                    <exclude>**/log4j.xml</exclude>
+                    <exclude>**/*.jpg</exclude>                    
+                  </excludes>
             </resource>
             <resource>
                 <directory>loadtest</directory>
