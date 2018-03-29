@@ -222,6 +222,7 @@
                  <directory>WebContent</directory>
                 <targetPath>${project.basedir}/target/${warname}</targetPath>
                  <includes>
+                    <include>**/index.html</include>
                     <include>**/WEB-INF/applicationContext.xml</include>
                     <include>**/WEB-INF/securityContext.xml</include>
                   </includes>
