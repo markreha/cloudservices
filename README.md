@@ -1,6 +1,6 @@
 **IoT Services Reference Application**
 ==================
-The example IoT Services Reference application implements a number of REST API's that support the IoT Reporting application and IoT Device Raspberry Pi Sense HAT application, which in combination demonstrate a simple, scalable, Cloud based IoT application. Get the [Cloud Workshop SDK](https://github.com/markreha/cloudworkshop/blob/master/README.md)!
+The example IoT Services Reference application implements a number of REST API's that support the IoT Reporting application and IoT Device Raspberry Pi Sense HAT application, which in combination demonstrate a simple, scalable, Cloud based IoT application. Get the [Cloud Workshop SDK!](https://github.com/markreha/cloudworkshop/blob/master/README.md)
 
 <p align="center">
 	<img src="https://github.com/markreha/cloudworkshop/blob/master/sdk/docs/architecture/images/iotservices.png" alt="IoT Services Logical Architecture"/>
