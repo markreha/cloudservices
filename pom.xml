@@ -174,6 +174,47 @@
               </resources>
             </build>
         </profile>
+        <profile>
+            <id>google</id>
+            <activation>
+               <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <build.profile.id>google</build.profile.id>
+            </properties>
+            <build>
+              <resources>
+                <resource>
+                  <directory>src/config/google</directory>
+                  <includes>
+                    <include>config.properties</include>
+                  </includes>
+                  <targetPath>config</targetPath>
+                </resource>
+                <resource>
+                  <directory>src/config/google</directory>
+                  <includes>
+                    <include>web.xml</include>
+                  </includes>
+                  <targetPath>${project.basedir}/target/${warname}/WEB-INF</targetPath>
+                </resource>
+               <resource>
+                  <directory>src/config/google</directory>
+                  <includes>
+                    <include>log4j.xml</include>
+                  </includes>
+                  <targetPath>../${warname}/WEB-INF/classes</targetPath>
+                </resource>
+               <resource>
+                  <directory>src/config/google</directory>
+                  <includes>
+                    <include>appengine-web.xml</include>
+                  </includes>
+                  <targetPath>../${warname}/WEB-INF</targetPath>
+                </resource>
+              </resources>
+            </build>
+        </profile>
     </profiles>
 
     <!-- Build Configuration -->  
@@ -206,6 +247,11 @@
                      </includes>
                 </configuration> 
             </plugin>
+             <plugin>
+   				<groupId>com.google.cloud.tools</groupId>
+   				<artifactId>appengine-maven-plugin</artifactId>
+   				<version>1.3.2</version>
+			</plugin>
         </plugins>
         <resources>
 	        <resource>
@@ -248,6 +294,22 @@
   
   <!-- Dependencies -->
   <dependencies>
+ 	<dependency>
+  		<groupId>com.google.cloud.sql</groupId>
+  		<artifactId>mysql-socket-factory</artifactId>
+  		<version>1.0.5</version>
+	</dependency>
+	<dependency>
+  		<groupId>com.google.api-client</groupId>
+		<artifactId>google-api-client</artifactId>
+		<version>1.21.0</version>
+	</dependency>
+	<dependency>
+  		<groupId>com.google.api-client</groupId>
+  		<artifactId>google-api-client-appengine</artifactId>
+  		<version>1.21.0</version>
+	</dependency>
+	
   	<dependency>
   		<groupId>org.springframework</groupId>
   		<artifactId>spring-context</artifactId>
