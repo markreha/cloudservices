@@ -3,13 +3,7 @@
     <threadsafe>true</threadsafe>
     <runtime>java8</runtime>
     <sessions-enabled>true</sessions-enabled>
-<!--
-    <use-google-connector-j>true</use-google-connector-j>
     <system-properties>
-        <property name="java.util.logging.config.file" value="WEB-INF/classes/logging.properties"/>
+        <property name="app.log" value="/tmp/cloudservices/logs/iotWeatherApp.log"/>
     </system-properties>
- 	<env-variables>
- 		<env-var name="JETTY_ARGS" value="-Djetty.test=/test" />
-	</env-variables>
--->
 </appengine-web-app>
