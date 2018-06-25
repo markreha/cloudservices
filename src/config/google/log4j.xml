@@ -21,6 +21,7 @@
  	<logger name="edu.gcu" additivity="false">
         <level value="INFO" />
         <appender-ref ref="file" />
+		<appender-ref ref="console" />
 	</logger>
  	<root>
 		<level value="INFO" />
