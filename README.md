@@ -3,7 +3,7 @@
 The example IoT Services Reference application implements a number of REST API's that support the [IoT Services Reference](https://github.com/markreha/cloudservices/blob/master/README.md) application and [IoT Device Raspberry Pi Sense HAT](https://github.com/markreha/cloudpi/blob/master/README.md) application, which in combination demonstrate a simple, scalable, Cloud based IoT application. Get the [Cloud Workshop SDK!](https://github.com/markreha/cloudworkshop/blob/master/README.md)
 
 <p align="center">
-	<img src="https://github.com/markreha/cloudworkshop/blob/master/sdk/docs/architecture/images/iotservices.png" alt="IoT Services Logical Architecture"/>
+	<img src="https://github.com/markreha/cloudworkshop/raw/master/sdk/docs/architecture/images/iotservices.png" alt="IoT Services Logical Architecture"/>
 </p>
 
 Architecture & Technologies
@@ -14,7 +14,7 @@ REST API's
 --------
 The IoT Services Reference application publishes 3 API's, one of which is an API used for testing and the remaining 2 API's to save and retrieve IoT Weather Data. It should be noted that the REST endpoint is secured by using HTTPS and Basic HTTP Authentication. All REST API's are based off of the [hostname]/cloudservices/weather URL.
 
-![IoT Services UML Diagram](https://github.com/markreha/cloudworkshop/blob/master/sdk/docs/architecture/images/iotrestservice.png)
+![IoT Services UML Diagram](https://github.com/markreha/cloudworkshop/raw/master/sdk/docs/architecture/images/iotrestservice.png)
 
 The REST API's include:
 
