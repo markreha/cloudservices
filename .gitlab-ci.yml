@@ -19,7 +19,7 @@ deploy_openshift:
     script:
         - echo "Deploying for OpenShift Cloud Platform"
         - oc login --token=$OPENSHIFT_TOKEN https://console.starter-us-west-2.openshift.com
-        - oc start-build marktest
+        - oc start-build test
         - oc logout
     when: manual
 
