@@ -34,8 +34,7 @@ deploy_azure:
     script:
         - echo "Deploying for Azure Cloud Platform"
         - mvn -Pazure clean package
-        - ls -all ./target
-#        - curl -X POST -u $AZURE_DEPLOY_USERNAME:$AZURE_DEPLOY_PASSWORD --data-binary @"./target/cloudservices.war" https://markwsserve2.scm.azurewebsites.net/api/wardeploy
+        - curl -X POST -u $AZURE_DEPLOY_USERNAME:$AZURE_DEPLOY_PASSWORD --data-binary @"./target/cloudservices.war" https://markwsserve2.scm.azurewebsites.net/api/wardeploy
     when: manual
 
 deploy_google:
