@@ -24,7 +24,7 @@ deploy_openshift:
     when: manual
 
 deploy_azure:
-    image: centos
+    image: maven:latest
     stage: deploy
     environment: azure
     only:
