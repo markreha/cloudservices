@@ -48,11 +48,12 @@ deploy_google:
     script:
         - echo "Deploying for Google Cloud Platform"
         - echo $GOOGLE_TOKEN > /tmp/$CI_PIPELINE_ID.json
-        - apt-get -y update && apt-get -y install default-jdk
-        - apt-get -y update && apt-get -y install maven
-        - mvn -X -Pgoogle clean package
-        - gcloud auth activate-service-account --key-file /tmp/$CI_PIPELINE_ID.json
-        - gcloud --quiet --project cloud-workshop-services app deploy
+        - apt-get -y update && apt-get -y openjdk-8-jre
+        - java -version
+#        - apt-get -y update && apt-get -y install maven
+#        - mvn -X -Pgoogle clean package
+#        - gcloud auth activate-service-account --key-file /tmp/$CI_PIPELINE_ID.json
+#        - gcloud --quiet --project cloud-workshop-services app deploy
     after_script:
         - rm /tmp/$CI_PIPELINE_ID.json
     when: manual
