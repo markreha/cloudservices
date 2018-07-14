@@ -5,7 +5,7 @@
 #       AZURE_DEPLOY_USERNAME = Go to Azure Portal, open your App, enter a username and password under the Deployment Credentials menu
 #       AZURE_DEPLOY_PASSWORD = See above
 # Google:
-#       GOOGLE_TOKEN = Go to Google Console, open your App, go to IAM & admin menu, create a Service Account for GitLab, export the JSON key
+#       GOOGLE_TOKEN = Go to Google Console, open your App, go to IAM & admin menu, create a Service Account named GitLab with an Editor Role with the 'Furnish new private key' checkedin JSON format, copy the entire downloaded JSON key to the clipboard for the variable value
 # Heroku:
 #       HEROKU_TOKEN = Go to Heroku CLI, login, run the command heroku auth:token
 #
@@ -48,6 +48,7 @@ deploy_google:
     script:
         - echo "Deploying for Google Cloud Platform"
         - echo $GOOGLE_TOKEN > /tmp/$CI_PIPELINE_ID.json
+        - mvn -Pgoogle clean package
         - gcloud auth activate-service-account --key-file /tmp/$CI_PIPELINE_ID.json
         - gcloud --quiet --project cloud-workshop-services app deploy
     after_script:
