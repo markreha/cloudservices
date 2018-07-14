@@ -38,7 +38,7 @@ deploy_azure:
     when: manual
 
 deploy_google:
-    image: mrsvan/google-cloud-sdk-app-engine-java
+    image: openjdk:8u111-jdk-alpine
     stage: deploy
     environment: google
     only:
