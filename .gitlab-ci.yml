@@ -51,7 +51,7 @@ deploy_google:
         - echo "deb http://http.debian.net/debian jessie-backports main" | tee /etc/apt/sources.list.d/docker.list
         - apt-get -y update && apt-get -y install -t jessie-backports openjdk-8-jdk
         - update-java-alternatives -s java-1.8.0-openjdk-amd64
-        - update-java-alternatives -s javac java-1.8.0-openjdk-amd64
+        - ln -s /etc/alternatives/javac /usr/bin/javac
         - java -version
         - javac -version
 #        - apt-get -y update && apt-get -y install maven
