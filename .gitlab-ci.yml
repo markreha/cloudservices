@@ -47,7 +47,7 @@ deploy_google:
         MAVEN_CLI_OPTS: "-Pgoogle"
     script:
         - echo "Deploying for Google Cloud Platform"
-        - echo $GOOGLE_TOKEN > /tmp/$CI_PIPELINE_ID.json
+#        - echo $GOOGLE_TOKEN > /tmp/$CI_PIPELINE_ID.json
         - echo "deb http://http.debian.net/debian jessie-backports main" | tee /etc/apt/sources.list.d/docker.list
         - apt-get -y update && apt-get -y install -t jessie-backports openjdk-8-jdk
         - update-java-alternatives -s java-1.8.0-openjdk-amd64
@@ -56,11 +56,12 @@ deploy_google:
         - java -version
         - javac -version
         - apt-get -y update && apt-get -y install maven
-        - mvn -Pgoogle clean package
-        - gcloud auth activate-service-account --key-file /tmp/$CI_PIPELINE_ID.json
-        - gcloud --quiet --project cloud-workshop-services app deploy
+        - mvn -Pgoogle clean appengine:deploy
+#        - mvn -Pgoogle clean package
+#        - gcloud auth activate-service-account --key-file /tmp/$CI_PIPELINE_ID.json
+#        - gcloud --quiet --project cloud-workshop-services app deploy
     after_script:
-        - rm /tmp/$CI_PIPELINE_ID.json
+#        - rm /tmp/$CI_PIPELINE_ID.json
     when: manual
     
 deploy_heroku:
