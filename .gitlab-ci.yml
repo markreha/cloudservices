@@ -38,7 +38,7 @@ deploy_azure:
     when: manual
 
 deploy_google:
-    image: google/cloud-sdk
+    image: mrsvan/google-cloud-sdk-app-engine-java
     stage: deploy
     environment: google
     only:
