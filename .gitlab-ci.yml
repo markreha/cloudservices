@@ -38,7 +38,7 @@ deploy_azure:
     when: manual
 
 deploy_google:
-    image: google/cloud-sdk:alpine
+    image: mrsvan/google-cloud-sdk-app-engine-java
     stage: deploy
     environment: google
     only:
@@ -48,7 +48,6 @@ deploy_google:
     script:
         - echo "Deploying for Google Cloud Platform"
         - echo $GOOGLE_TOKEN > /tmp/$CI_PIPELINE_ID.json
-        - yum install maven
         - mvn -X -Pgoogle clean package
         - gcloud auth activate-service-account --key-file /tmp/$CI_PIPELINE_ID.json
         - gcloud --quiet --project cloud-workshop-services app deploy
