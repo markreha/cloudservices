@@ -48,8 +48,8 @@ deploy_google:
     script:
         - echo "Deploying for Google Cloud Platform"
         - echo $GOOGLE_TOKEN > /tmp/$CI_PIPELINE_ID.json
-        - apt-get -y install software-properties-common python-software-properties
-        - add-apt-repository ppa:openjdk-r/ppa && apt-get update && apt-get install openjdk-8-jdk
+        - deb http://http.debian.net/debian jessie-backports main
+        - apt-get update && apt-get install -t jessie-backports openjdk-8-jdk
         - java -version
 #        - apt-get -y update && apt-get -y install maven
 #        - mvn -X -Pgoogle clean package
