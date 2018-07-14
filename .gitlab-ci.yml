@@ -48,6 +48,7 @@ deploy_google:
     script:
         - echo "Deploying for Google Cloud Platform"
         - echo $GOOGLE_TOKEN > /tmp/$CI_PIPELINE_ID.json
+        - apt-get install software-properties-common python-software-properties
         - add-apt-repository ppa:openjdk-r/ppa && apt-get update && apt-get install openjdk-8-jdk
         - java -version
 #        - apt-get -y update && apt-get -y install maven
