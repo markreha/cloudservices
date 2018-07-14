@@ -48,7 +48,7 @@ deploy_google:
     script:
         - echo "Deploying for Google Cloud Platform"
         - echo $GOOGLE_TOKEN > /tmp/$CI_PIPELINE_ID.json
-        - mvn -Pgoogle clean package
+        - mvn -X -Pgoogle clean package
         - gcloud auth activate-service-account --key-file /tmp/$CI_PIPELINE_ID.json
         - gcloud --quiet --project cloud-workshop-services app deploy
     after_script:
