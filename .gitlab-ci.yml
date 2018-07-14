@@ -52,8 +52,8 @@ deploy_google:
         - apt-get -y update && apt-get -y install -t jessie-backports openjdk-8-jdk
         - update-java-alternatives --set java-1.8.0-openjdk-amd64
         - java -version
-#        - apt-get -y update && apt-get -y install maven
-#        - mvn -X -Pgoogle clean package
+        - apt-get -y update && apt-get -y install maven
+        - mvn -X -Pgoogle clean package
 #        - gcloud auth activate-service-account --key-file /tmp/$CI_PIPELINE_ID.json
 #        - gcloud --quiet --project cloud-workshop-services app deploy
     after_script:
