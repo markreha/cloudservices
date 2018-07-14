@@ -50,7 +50,7 @@ deploy_google:
         - echo $GOOGLE_TOKEN > /tmp/$CI_PIPELINE_ID.json
         - echo "deb http://http.debian.net/debian jessie-backports main" | tee /etc/apt/sources.list.d/docker.list
         - apt-get -y update && apt-get -y install -t jessie-backports openjdk-8-jdk
-        - update-java-alternatives --set java-1.8.0-openjdk-amd64
+        - update-java-alternatives -s java-1.8.0-openjdk-amd64
         - java -version
         - javac -version
         - which java
