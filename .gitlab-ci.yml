@@ -38,7 +38,7 @@ deploy_azure:
     when: manual
 
 deploy_google:
-    image: google/cloud-sdk
+    image: google/cloud-sdk:latest
     stage: deploy
     environment: google
     only:
@@ -48,8 +48,8 @@ deploy_google:
     script:
         - echo "Deploying for Google Cloud Platform"
         - echo $GOOGLE_TOKEN > /tmp/$CI_PIPELINE_ID.json
-        - apt-get update && apt-get install google-cloud-sdk-app-engine-java
-        - gcloud components update
+#        - apt-get update && apt-get install google-cloud-sdk-app-engine-java
+        - gcloud components list
         - java -version
 #        - apt-get -y update && apt-get -y install maven
 #        - mvn -X -Pgoogle clean package
