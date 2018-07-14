@@ -49,7 +49,7 @@ deploy_google:
         - echo "Deploying for Google Cloud Platform"
         - echo $GOOGLE_TOKEN > /tmp/$CI_PIPELINE_ID.json
 #        - apt-get update && apt-get install google-cloud-sdk-app-engine-java
-        - gcloud components list
+        - gcloud components update
         - java -version
 #        - apt-get -y update && apt-get -y install maven
 #        - mvn -X -Pgoogle clean package
