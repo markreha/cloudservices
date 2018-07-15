@@ -7,7 +7,7 @@
 # Google:
 #       GOOGLE_TOKEN = Go to Google Console, open your App, go to IAM & admin menu, create a Service Account named GitLab with an Editor Role with the 'Furnish new private key' checkedin JSON format, copy the entire downloaded JSON key to the clipboard for the variable value
 # Heroku:
-#       HEROKU_TOKEN = Go to Heroku CLI, login, run the command heroku auth:token
+#       HEROKU_TOKEN = Get from Heroku Account Settings or use Heroku CLI, login, run the command heroku auth:token
 #
 
 deploy_openshift:
