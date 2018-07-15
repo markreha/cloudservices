@@ -57,7 +57,7 @@ deploy_google:
         - java -version
         - javac -version
         - apt-get -y update && apt-get -y install maven
-        - mvn -Pgoogle clean appengine:deploy
+        - mvn -Pgoogle clean appengine:deploy --project cloud-workshop-services
     after_script:
         - rm /tmp/$CI_PIPELINE_ID.json
     when: manual
