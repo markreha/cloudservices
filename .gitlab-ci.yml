@@ -72,9 +72,6 @@ deploy_heroku:
         - git config --global user.name "Mark Reha"
         - git config --global push.default matching
         - git checkout master
-        - git commit --allow-empty -m "Heroku Build Trigger notification"
-#        - git add -A
-#        - git status
-#        - git commit -m "Release from GitLab"
+        - git commit --allow-empty -m "Heroku build trigger notification"
         - git push -f heroku HEAD:master
     when: manual
