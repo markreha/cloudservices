@@ -29,8 +29,6 @@ deploy_azure:
     environment: azure
     only:
         - master
-    variables:
-        MAVEN_CLI_OPTS: "-Pazure"
     script:
         - echo "Deploying for Azure Cloud Platform"
         - mvn -Pazure clean package
@@ -43,8 +41,6 @@ deploy_google:
     environment: google
     only:
         - master
-    variables:
-        MAVEN_CLI_OPTS: "-Pgoogle"
     script:
         - echo "Deploying for Google Cloud Platform"
         - echo $GOOGLE_TOKEN > /tmp/$CI_PIPELINE_ID.json
@@ -68,8 +64,6 @@ deploy_heroku:
     environment: heroku
     only:
         - master
-    variables:
-        MAVEN_CLI_OPTS: "-Pheroku"
     script:
         - echo "Deploying for Heroku Cloud Platform"
         - yum install git -y
