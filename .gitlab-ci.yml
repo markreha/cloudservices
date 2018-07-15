@@ -67,7 +67,7 @@ deploy_heroku:
     script:
         - echo "Deploying for Heroku Cloud Platform"
         - yum install git -y
-        - git update-index --no-assume-unchanged ./Procfile
+        - touch ./Procfile
         - git remote add heroku https://heroku:$HEROKU_TOKEN@git.heroku.com/mark-servicesapp.git
         - git config --global user.email "markreha@mac.com"
         - git config --global user.name "Mark Reha"
