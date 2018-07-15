@@ -74,6 +74,6 @@ deploy_heroku:
         - git commit --allow-empty -m "Heroku Build Trigger notification"
         - git add -A
         - git status
-        - git commit -m "Release from GitLab"
+#        - git commit -m "Release from GitLab"
         - git push -f heroku HEAD:master
     when: manual
