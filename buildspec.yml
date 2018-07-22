@@ -7,7 +7,7 @@ phases:
             - mvn -Pamazon clean package
         
 artifacts:
-    files: **/*
+    files: '**/*'
     base-directory: target/cloudservices
     
 cache:
