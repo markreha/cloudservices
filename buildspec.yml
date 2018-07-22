@@ -8,7 +8,6 @@ phases:
         
 artifacts:
     files: target/cloudservices/**/*
-    discard-paths: yes
     
 cache:
   paths:
