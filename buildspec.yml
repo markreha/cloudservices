@@ -7,5 +7,9 @@ phases:
             - mvn -Pamazon clean package
         
 artifacts:
-    files: target/cloudservices.war
+    files: target/cloudservices/**/*
     discard-paths: yes
+    
+cache:
+  paths:
+    - '/root/.m2/**/*'
