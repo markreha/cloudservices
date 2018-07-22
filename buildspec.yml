@@ -1,0 +1,11 @@
+version: 0.2
+
+phases:
+    build:
+        commands:
+            - echo 'Building Services App............'
+            - mvn -Pamazon clean package
+        
+artifacts:
+    files: target/cloudservices.war
+    discard-paths: yes
