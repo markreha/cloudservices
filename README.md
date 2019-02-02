@@ -22,7 +22,7 @@ The REST API's include:
  - GET at /get: will return IoT Weather data for a specified Device ID, From Date, and End Date
  - POST at /save: will save IoT Weather data from the a specified WeatherSensorModel
 
-The JavaDoc for the entire application can be found [here](http://htmlpreview.github.com/?https://github.com/markreha/cloudworkshop/blob/master/sdk/docs/javadoc/index.html) 
+The JavaDoc for the entire application can be found [here](http://htmlpreview.github.com/?https://github.com/markreha/cloudworkshop/blob/master/sdk/docs/javadoc/overview-summary.html) 
 
 Building
 --------
