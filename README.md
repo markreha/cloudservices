@@ -8,8 +8,10 @@ The example IoT Services Reference application implements a number of REST API's
 
 Architecture & Technologies
 --------
-The IoT Services Reference application is designed and implemented in Java using the Spring Framework (Spring Core and Spring JDBC) that implements its published REST API's based on the JAX-RS framework using the Jackson and Jersey implementation libraries. 
- 
+The IoT Services Reference application is designed and implemented in Java using the Spring Framework (Spring Core and Spring JDBC) that implements its published REST API's based on the JAX-RS framework using the Jackson and Jersey implementation libraries.
+
+The JavaDoc for the entire application can be found [here](http://htmlpreview.github.com/?https://github.com/markreha/cloudworkshop/blob/master/sdk/docs/javadoc/overview-summary.html)
+
 REST API's
 --------
 The IoT Services Reference application publishes 3 API's, one of which is an API used for testing and the remaining 2 API's to save and retrieve IoT Weather Data. It should be noted that the REST endpoint is secured by using HTTPS and Basic HTTP Authentication. All REST API's are based off of the [hostname]/cloudservices/weather URL.
@@ -22,7 +24,7 @@ The REST API's include:
  - GET at /get: will return IoT Weather data for a specified Device ID, From Date, and End Date
  - POST at /save: will save IoT Weather data from the a specified WeatherSensorModel
 
-The JavaDoc for the entire application can be found [here](http://htmlpreview.github.com/?https://github.com/markreha/cloudworkshop/blob/master/sdk/docs/javadoc/overview-summary.html) 
+The REST API's are published using the Swagger API [here](https://markreha.github.io/cloudworkshop/sdk/docs/swagger/site/index.html) and [here](https://markreha.github.io/cloudworkshop/sdk/docs/swagger/index.html).
 
 Building
 --------
